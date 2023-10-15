@@ -11,3 +11,8 @@ jobs:
           name: echo pipeline.git_url
           command: |
             echo "This is pipeline.git_url: << pipeline.git_url >>"
+
+workflows:
+  simple-job:
+    jobs:
+      - my-job
