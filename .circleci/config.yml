@@ -7,6 +7,9 @@ parameters:
   my-boolean-param:
       type: boolean
       default: true
+  should-run:
+    type: boolean
+    default: false
 
 jobs:
   my-job:
@@ -34,7 +37,8 @@ jobs:
 workflows:
   simple-job:
     jobs:
-      - my-job
+      - my-job:
+          when: << pipeline.parameters.should-run >>
       - my-job2:
           requires:
             - my-job
