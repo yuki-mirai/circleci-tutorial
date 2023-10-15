@@ -1,10 +1,10 @@
 version: 2.1
 
 parameters:
-  - my-string-param:
+  my-string-param:
       type: string
       default: 'default value for my-string-param'
-  - my-boolean-param:
+  my-boolean-param:
       type: boolean
       default: true
 
