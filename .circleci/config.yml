@@ -3,7 +3,8 @@ version: 2.1
 jobs:
   my-job:
     docker:
-      - image: cimg:openjdk:20.0.1
+      - image: cimg/openjdk:20.0.1
+    working_directory: ~/workspace
     steps:
       - run: |
           echo "This is pipeline.id values: << pipeline.id >>"
