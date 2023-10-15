@@ -36,9 +36,9 @@ jobs:
 
 workflows:
   simple-job:
+    when: << pipeline.parameters.should-run >>
     jobs:
-      - my-job:
-          when: << pipeline.parameters.should-run >>
+      - my-job
       - my-job2:
           requires:
             - my-job
