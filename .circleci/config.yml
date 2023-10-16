@@ -32,11 +32,11 @@ jobs:
           command: echo "<< pipeline.parameters.my-string-param >>"
       - run:
           name: echo my-boolean-param
-          command: echo "<< pipeline.parameters.my-boolean-param >>"
+          command: echo "<< pipeline.parameters.my-boolean-param1 >>"
 
 workflows:
   simple-job:
-    when: << pipeline.parameters.should-run >>
+#    when: << pipeline.parameters.should-run >>
     jobs:
       - my-job
       - my-job2:
