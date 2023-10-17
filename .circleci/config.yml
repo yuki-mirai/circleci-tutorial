@@ -7,5 +7,4 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
-      - run: gradle run
       - run: gradle test
