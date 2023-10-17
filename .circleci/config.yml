@@ -1,14 +1,9 @@
 version: 2.1
 
-parameters:
-  working_directory: &wd
-    ~/project
-
 jobs:
   build:
     docker:
       - image: cimg/openjdk:20.0.1
-    working_directory: *wd
     steps:
       - checkout
       - run:
@@ -21,7 +16,6 @@ jobs:
   test:
     docker:
       - image: cimg/openjdk:20.0.1
-    working_directory: *wd
     steps:
       - run: gradle test
 
