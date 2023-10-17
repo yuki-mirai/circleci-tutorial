@@ -1,44 +1,9 @@
 version: 2.1
 
-parameters:
-  my-string-param:
-      type: string
-      default: 'default value for my-string-param'
-  my-boolean-param:
-      type: boolean
-      default: true
-  should-run:
-    type: boolean
-    default: false
-
 jobs:
-  my-job:
+  build:
     docker:
-      - image: cimg/openjdk:20.0.1
-    working_directory: ~/workspace
+      - image: cimg/openjdk:20.0.0
     steps:
-      - run: |
-          echo "This is pipeline.id values: << pipeline.id >>"
-      - run:
-          name: echo pipeline.git_url
-          command: |
-            echo "This is pipeline.git_url: << pipeline.project.git_url >>"
-  my-job2:
-    docker:
-      - image: cimg/openjdk:20.0.1
-    steps:
-      - run:
-          name: echo my-string-param
-          command: echo "<< pipeline.parameters.my-string-param >>"
-      - run:
-          name: echo my-boolean-param
-          command: echo "<< pipeline.parameters.my-boolean-param >>"
-
-workflows:
-  simple-job:
-#    when: << pipeline.parameters.should-run >>
-    jobs:
-      - my-job
-      - my-job2:
-          requires:
-            - my-job
+      - run: gradle run
+      - run: gradle test
