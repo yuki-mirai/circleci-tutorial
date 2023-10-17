@@ -3,7 +3,9 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:20.0.0
+      - image: cimg/openjdk:20.0.1
+    working_directory: ~/project
     steps:
+      - checkout
       - run: gradle run
       - run: gradle test
