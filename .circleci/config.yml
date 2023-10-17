@@ -10,3 +10,5 @@ jobs:
       - run: java --version
       - run: gradle --version
       - run: gradle test
+      - run: echo "<< pipeline.trigger_parameters.github_app.commit_author_name >>"
+      - run: echo "<< pipeline.trigger_parameters.github_app.commit_author_email >>"
