@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: cimg/openjdk:20.0.1
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "02:8d:ab:30:c1:8b:9a:0e:98:d4:0f:3d:eb:59:26:b6"
       - checkout
       - run:
           name: echo version of java
