@@ -16,9 +16,9 @@ jobs:
           name: echo version of gradle
           command: gradle --version
       # - run: gradle build
-      - run:
-          name: Add known hosts
-          command: ssh-keyscan circleci.com >> ~/.ssh/known_hosts
+      # - run:
+          # name: Add known hosts
+          # command: ssh-keyscan circleci.com >> ~/.ssh/known_hosts
       - run:
           name: Deploy Over SSH
           command: |
