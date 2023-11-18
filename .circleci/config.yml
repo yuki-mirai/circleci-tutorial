@@ -13,6 +13,11 @@ jobs:
           name: echo version of gradle
           command: gradle --version
       - run: gradle build
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "ls"
+    
   # test:
     # docker:
       # - image: cimg/openjdk:20.0.1
