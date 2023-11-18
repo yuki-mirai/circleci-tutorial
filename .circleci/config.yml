@@ -9,12 +9,12 @@ jobs:
           fingerprints:
             - "02:8d:ab:30:c1:8b:9a:0e:98:d4:0f:3d:eb:59:26:b6"
       - checkout
-      - run:
-          name: echo version of java
-          command: java --version
-      - run:
-          name: echo version of gradle
-          command: gradle --version
+      # - run:
+      #     name: echo version of java
+      #     command: java --version
+      # - run:
+      #     name: echo version of gradle
+      #     command: gradle --version
       # - run: gradle build
       # - run:
           # name: Add known hosts
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "ls"
+            rsync -avce ssh build $SSH_USER@$SSH_HOST "ls"
     
   # test:
     # docker:
