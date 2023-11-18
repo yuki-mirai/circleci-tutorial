@@ -23,10 +23,14 @@ jobs:
           name: Add SSH host to known
           command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
       - run:
-          name: Deploy
+          name: Deploy Over SSH
           command: |
-            SSH_DEPLOY_PATH=/home/ubuntu/
-            scp ./* "$SSH_USER@$SSH_HOST:$SSH_DEPLOY_PATH"
+            ssh $SSH_USER@$SSH_HOST ""
+      # - run:
+      #     name: Deploy
+      #     command: |
+      #       SSH_DEPLOY_PATH=/home/ubuntu/
+      #       scp ./* "$SSH_USER@$SSH_HOST:$SSH_DEPLOY_PATH"
       # - run:
       #     name: Deploy Over SSH
       #     command: |
