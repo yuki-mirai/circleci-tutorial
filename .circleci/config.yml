@@ -22,11 +22,11 @@ jobs:
       - run:
           name: Add SSH host to known
           command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
-      - run:
-          name: Deploy
-          command: |
-            SSH_DEPLOY_PATH=/apps/my-app
-            scp -r ./* "$SSH_USER@$SSH_HOST:$SSH_DEPLOY_PATH"
+      # - run:
+          # name: Deploy
+          # command: |
+          #   SSH_DEPLOY_PATH=/apps/my-app
+          #   scp -r ./* "$SSH_USER@$SSH_HOST:$SSH_DEPLOY_PATH"
       - run:
           name: Deploy Over SSH
           command: |
